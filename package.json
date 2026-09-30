@@ -1,0 +1,44 @@
+{
+  "name": "paged-attention-wgsl",
+  "version": "1.0.0",
+  "description": "High-Throughput PagedAttention & Block-Tiled KV-Cache Virtual Memory Engine in WebGPU / WGSL for Browser-Native LLM Serving",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "bench": "npx tsx scripts/benchmark.ts"
+  },
+  "keywords": [
+    "webgpu",
+    "wgsl",
+    "paged-attention",
+    "vllm",
+    "kv-cache",
+    "llm-serving",
+    "virtual-memory",
+    "transformers",
+    "browser-ai",
+    "online-softmax",
+    "grouped-query-attention"
+  ],
+  "author": "nff747 <nff747@users.noreply.github.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nff747/paged-attention-wgsl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nff747/paged-attention-wgsl/issues"
+  },
+  "homepage": "https://github.com/nff747/paged-attention-wgsl#readme",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@webgpu/types": "^0.1.50",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.1"
+  }
+}
