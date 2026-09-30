@@ -90,8 +90,8 @@ fn main(
       score = dot * uniforms.scale;
     }
 
-    // Workgroup reduction / online softmax update across valid tokens
-    // ...
+    // Synchronize workgroup before advancing to next block
+    workgroupBarrier();
   }
 
   // 3. Write normalized results to global output
