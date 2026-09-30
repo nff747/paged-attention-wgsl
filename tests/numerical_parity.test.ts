@@ -74,7 +74,6 @@ describe('Numerical Parity: PagedAttention vs Naive Attention', () => {
       expect(maxDiff).toBeLessThan(1e-5);
     }
   });
-});
 
   it('handles extreme dynamic range without numerical overflow', () => {
     const headDim = 16;
@@ -86,3 +85,4 @@ describe('Numerical Parity: PagedAttention vs Naive Attention', () => {
     expect(Number.isFinite(out[0])).toBe(true);
     expect(out[0]).toBeCloseTo(1.0, 4);
   });
+});

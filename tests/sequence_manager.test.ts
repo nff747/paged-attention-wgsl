@@ -46,7 +46,6 @@ describe('SequenceManager', () => {
     manager.freeSequence(child.seqId);
     expect(allocator.getAllocatedCount()).toBe(0);
   });
-});
 
   it('handles empty prompt initialization gracefully', () => {
     const seq = manager.createSequence([]);
@@ -54,3 +53,4 @@ describe('SequenceManager', () => {
     expect(seq.blockTable.length).toBe(1);
     expect(seq.status).toBe('prefill');
   });
+});

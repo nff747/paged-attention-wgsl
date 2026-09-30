@@ -1,6 +1,7 @@
 # ⚡ paged-attention-wgsl
 
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)]()
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-WebGPU%20Visualizer-00f0ff.svg)](https://nff747.github.io/paged-attention-wgsl/)
 [![WebGPU](https://img.shields.io/badge/WebGPU-WGSL-blue.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -64,3 +65,7 @@ When multiple requests share the same system prompt or few-shot examples, `paged
 ## 📄 License
 
 MIT © [nff747](https://github.com/nff747)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please ensure all unit tests pass () and maintain zero-dependency purity in runtime modules.
