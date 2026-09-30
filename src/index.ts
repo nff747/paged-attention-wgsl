@@ -16,3 +16,4 @@ export * from './runtime/paged_kv_cache';
 export * from './runtime/paged_pipeline';
 export * from './analysis/fragmentation';
 export * from './analysis/throughput';
+export * from './math/causal_mask';
