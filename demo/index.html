@@ -50,6 +50,11 @@
     <div class="card">
       <h3>Physical Block Pool (WebGPU Storage Buffer)</h3>
       <div id="pool-stats">Allocated: 0 / 64 blocks</div>
+      <div style="display: flex; gap: 15px; margin-top: 10px; font-size: 12px;">
+        <span><span style="display: inline-block; width: 10px; height: 10px; background: #3fb950; border-radius: 2px;"></span> Free</span>
+        <span><span style="display: inline-block; width: 10px; height: 10px; background: #58a6ff; border-radius: 2px;"></span> In-Use</span>
+        <span><span style="display: inline-block; width: 10px; height: 10px; background: #bc8cff; border-radius: 2px;"></span> Shared (Prefix)</span>
+      </div>
       <div class="blocks-container" id="block-grid"></div>
     </div>
     <div class="card">
