@@ -21,7 +21,12 @@ export function naiveScaledDotProductAttention(
   for (let i = 0; i < seqLen; i++) {
     const k = keys[i];
     let dot = 0.0;
-    for (let d = 0; d < headDim; d++) {
+    // Unroll 4x for SIMD efficiency
+    let d = 0;
+    for (; d + 3 < headDim; d += 4) {
+      dot += query[d] * k[d] + query[d + 1] * k[d + 1] + query[d + 2] * k[d + 2] + query[d + 3] * k[d + 3];
+    }
+    for (; d < headDim; d++) {
       dot += query[d] * k[d];
     }
     const s = dot * tau;
