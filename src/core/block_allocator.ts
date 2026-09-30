@@ -37,6 +37,17 @@ export class BlockAllocator {
     return this.allocatedCount;
   }
 
+  public allocateBulk(count: number): number[] {
+    if (this.freeList.length < count) {
+      throw new Error(`Insufficient free blocks. Requested ${count}, available ${this.freeList.length}`);
+    }
+    const allocated: number[] = [];
+    for (let i = 0; i < count; i++) {
+      allocated.push(this.allocate());
+    }
+    return allocated;
+  }
+
   public allocate(): number {
     if (this.freeList.length === 0) {
       throw new Error(`Out of physical KV-cache blocks. Total capacity: ${this.totalBlocks}`);
