@@ -75,3 +75,14 @@ describe('Numerical Parity: PagedAttention vs Naive Attention', () => {
     }
   });
 });
+
+  it('handles extreme dynamic range without numerical overflow', () => {
+    const headDim = 16;
+    const query = new Float32Array(headDim).fill(50.0);
+    const keys = [new Float32Array(headDim).fill(50.0), new Float32Array(headDim).fill(-50.0)];
+    const values = [new Float32Array(headDim).fill(1.0), new Float32Array(headDim).fill(2.0)];
+
+    const out = naiveScaledDotProductAttention(query, keys, values, headDim);
+    expect(Number.isFinite(out[0])).toBe(true);
+    expect(out[0]).toBeCloseTo(1.0, 4);
+  });
