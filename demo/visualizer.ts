@@ -46,7 +46,14 @@ document.getElementById('btn-add-seq')?.addEventListener('click', () => {
   }
 });
 
+let activeSeqIds: number[] = [];
+
 document.getElementById('btn-step-token')?.addEventListener('click', () => {
+  for (const id of activeSeqIds) {
+    try {
+      manager.appendToken(id, Math.floor(Math.random() * 1000));
+    } catch {}
+  }
   render();
 });
 
