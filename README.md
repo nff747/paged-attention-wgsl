@@ -49,6 +49,18 @@ console.log(`Sequence ${seq.seqId} mapped to physical blocks:`, seq.blockTable);
 
 ---
 
+## 🧬 Copy-On-Write Prefix Caching Architecture
+
+```
+Sequence A: [Block 0 (SysPrompt)] -> [Block 1 (Prompt)] -> [Block 4 (Decode)]
+                                                          ^ (Fork)
+Sequence B: [Block 0 (SysPrompt)] -> [Block 1 (Prompt)] -> [Block 5 (Decode)]
+```
+
+When multiple requests share the same system prompt or few-shot examples, `paged-attention-wgsl` increments the reference counter on physical blocks `0` and `1`. Both sequences execute GPU attention reads from the exact same physical buffer slots with **0 memory replication**.
+
+---
+
 ## 📄 License
 
 MIT © [nff747](https://github.com/nff747)
