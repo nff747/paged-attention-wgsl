@@ -88,6 +88,13 @@ export class SequenceManager {
     return this.sequences.get(seqId);
   }
 
+  public setFinished(seqId: number): void {
+    const seq = this.sequences.get(seqId);
+    if (seq) {
+      seq.status = 'finished';
+    }
+  }
+
   public getActiveCount(): number {
     return this.sequences.size;
   }
