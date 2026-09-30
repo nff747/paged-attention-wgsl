@@ -53,6 +53,11 @@ export class GpuContext {
     }
   }
 
+  public validateBufferSize(requiredBytes: number): boolean {
+    if (!this.capabilities) return false;
+    return requiredBytes <= this.capabilities.maxStorageBufferBindingSize;
+  }
+
   public isAvailable(): boolean {
     return this.device !== null;
   }
