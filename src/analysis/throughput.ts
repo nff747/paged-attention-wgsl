@@ -28,3 +28,12 @@ export class ThroughputPlanner {
     };
   }
 }
+
+export function formatThroughputTable(
+  capacity: { maxConcurrentPaged: number; maxConcurrentContiguous: number }
+): string {
+  return `| Strategy | Max Concurrent Sequences | Gain |
+| :--- | :---: | :---: |
+| Contiguous Pre-allocation | ${capacity.maxConcurrentContiguous} | 1.0x |
+| PagedAttention (Block 16) | ${capacity.maxConcurrentPaged} | ${(capacity.maxConcurrentPaged / Math.max(1, capacity.maxConcurrentContiguous)).toFixed(1)}x |`;
+}
