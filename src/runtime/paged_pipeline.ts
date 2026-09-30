@@ -6,6 +6,8 @@ import { PagedKvCache } from './paged_kv_cache';
  * Orchestrates compute pipeline, bind groups, and dispatch grid for PagedAttention.
  */
 export class PagedAttentionPipeline {
+  private cachedBindGroup: GPUBindGroup | null = null;
+
   private pipeline: GPUComputePipeline | null = null;
   private uniformBuffer: GPUBuffer | null = null;
 
