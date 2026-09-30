@@ -33,7 +33,9 @@ export class OnlineSoftmaxAccumulator {
     }
 
     const newMax = Math.max(this.maxScore, blockMax);
-    const alpha = this.maxScore === -Infinity ? 0.0 : Math.exp(this.maxScore - newMax);
+    // Underflow safeguard: skip scaling if diff exceeds numerical float range
+    const diff = this.maxScore - newMax;
+    const alpha = this.maxScore === -Infinity ? 0.0 : (diff < -88.0 ? 0.0 : Math.exp(diff));
 
     // Rescale previous accumulator sum and output vector
     this.sumExp *= alpha;
