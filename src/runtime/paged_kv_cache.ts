@@ -30,6 +30,14 @@ export class PagedKvCache {
     });
   }
 
+  public createStagingBuffer(device: GPUDevice): GPUBuffer {
+    return device.createBuffer({
+      label: 'paged_kv_staging_readback',
+      size: this.totalBytesPerBuffer,
+      usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST,
+    });
+  }
+
   public destroy(): void {
     if (this.keyBuffer) {
       this.keyBuffer.destroy();
