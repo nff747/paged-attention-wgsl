@@ -43,6 +43,20 @@ export class FragmentationAnalyzer {
    * Models PagedAttention memory waste where only the final block of each sequence
    * can have un-filled slots.
    */
+  /**
+   * Models multi-turn conversation where prefix blocks are retained across user queries.
+   */
+  public static analyzeMultiTurnSharing(
+    numTurns: number,
+    systemPromptTokens: number,
+    tokensPerTurn: number,
+    blockSize: number
+  ): { sharedBlocks: number; savedBytes: number } {
+    const sharedBlocks = Math.ceil(systemPromptTokens / blockSize);
+    const savedBytes = (numTurns - 1) * sharedBlocks * blockSize * 16384;
+    return { sharedBlocks, savedBytes };
+  }
+
   public static analyzePaged(
     seqLens: number[],
     blockSize: number,
