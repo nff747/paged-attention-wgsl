@@ -26,7 +26,7 @@
     "grouped-query-attention"
   ],
   "author": "nff747 <nff747@users.noreply.github.com>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nff747/paged-attention-wgsl.git"

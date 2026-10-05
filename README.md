@@ -3,7 +3,7 @@
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)]()
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-WebGPU%20Visualizer-00f0ff.svg)](https://nff747.github.io/paged-attention-wgsl/)
 [![WebGPU](https://img.shields.io/badge/WebGPU-WGSL-blue.svg)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-Apache_2.0-blue)](https://opensource.org/licenses/MIT)
 
 A high-throughput, zero-dependency **PagedAttention** and block-tiled KV-cache virtual memory compute engine implemented in WebGPU and WGSL for browser-native LLM serving.
 
