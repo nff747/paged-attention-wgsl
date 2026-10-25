@@ -63,4 +63,15 @@ describe('BlockAllocator', () => {
     expect(() => allocator.free(-1)).toThrow(RangeError);
     expect(() => allocator.free(100)).toThrow(RangeError);
   });
+
+  it('tracks cache block utilization ratio across allocation lifecycle', () => {
+    expect(allocator.getUtilizationRatio()).toBe(0.0);
+
+    allocator.allocate();
+    allocator.allocate();
+    expect(allocator.getUtilizationRatio()).toBeCloseTo(0.2, 5);
+
+    allocator.allocateBulk(3);
+    expect(allocator.getUtilizationRatio()).toBeCloseTo(0.5, 5);
+  });
 });
