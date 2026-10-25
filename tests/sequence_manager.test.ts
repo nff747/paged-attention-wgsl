@@ -53,4 +53,12 @@ describe('SequenceManager', () => {
     expect(seq.blockTable.length).toBe(1);
     expect(seq.status).toBe('prefill');
   });
+
+  it('measures internal token slack across sequences', () => {
+    manager.createSequence([10, 20, 30, 40, 50]);
+    expect(manager.getTotalInternalSlack()).toBe(3);
+
+    manager.createSequence([1, 2, 3, 4]);
+    expect(manager.getTotalInternalSlack()).toBe(3);
+  });
 });
