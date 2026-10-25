@@ -86,3 +86,24 @@ describe('Numerical Parity: PagedAttention vs Naive Attention', () => {
     expect(out[0]).toBeCloseTo(1.0, 4);
   });
 });
+
+import { generateCausalMaskMatrix, isCausalMasked } from '../src/math/causal_mask';
+
+describe('Causal Mask Matrix Generation', () => {
+  it('generates lower-triangular causal attention mask with negative infinity penalties', () => {
+    const seqLen = 4;
+    const mask = generateCausalMaskMatrix(seqLen);
+    expect(mask.length).toBe(16);
+
+    for (let q = 0; q < seqLen; q++) {
+      for (let k = 0; k < seqLen; k++) {
+        const val = mask[q * seqLen + k];
+        if (k <= q) {
+          expect(val).toBe(0.0);
+        } else {
+          expect(val).toBe(-1e9);
+        }
+      }
+    }
+  });
+});
