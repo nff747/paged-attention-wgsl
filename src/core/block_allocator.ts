@@ -37,6 +37,13 @@ export class BlockAllocator {
     return this.allocatedCount;
   }
 
+  /**
+   * Computes cache utilization metric in range [0.0, 1.0].
+   */
+  public getUtilizationRatio(): number {
+    return this.allocatedCount / this.totalBlocks;
+  }
+
   public allocateBulk(count: number): number[] {
     if (this.freeList.length < count) {
       throw new Error(`Insufficient free blocks. Requested ${count}, available ${this.freeList.length}`);
