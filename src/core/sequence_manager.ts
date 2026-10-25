@@ -99,6 +99,18 @@ export class SequenceManager {
     return this.sequences.size;
   }
 
+  /**
+   * Calculates total internal token slack (unfilled slots in allocated blocks) across all sequences.
+   */
+  public getTotalInternalSlack(): number {
+    let slack = 0;
+    for (const seq of this.sequences.values()) {
+      const allocatedCapacity = seq.blockTable.length * this.blockSize;
+      slack += (allocatedCapacity - seq.contextLen);
+    }
+    return slack;
+  }
+
   public clear(): void {
     for (const seqId of Array.from(this.sequences.keys())) {
       this.freeSequence(seqId);
