@@ -1,5 +1,7 @@
 # ⚡ paged-attention-wgsl
 
+[![Lunar Paradox](https://img.shields.io/badge/Organization-Lunar_Paradox-0a0e1a?style=for-the-badge&logo=probot&logoColor=d7b886)](https://lunarparadox.com)
+
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)]()
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-WebGPU%20Visualizer-00f0ff.svg)](https://nff747.github.io/paged-attention-wgsl/)
 [![WebGPU](https://img.shields.io/badge/WebGPU-WGSL-blue.svg)]()
@@ -69,3 +71,7 @@ Apache 2.0 © [nff747](https://github.com/nff747)
 ## 🤝 Contributing
 
 Contributions are welcome! Please ensure all unit tests pass () and maintain zero-dependency purity in runtime modules.
+
+---
+
+*A component of the [Lunar Paradox](https://lunarparadox.com) applied systems & graphics laboratory. Engineered by nff747.*
